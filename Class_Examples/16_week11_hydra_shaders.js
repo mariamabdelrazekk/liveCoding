@@ -112,7 +112,7 @@ setFunction({
       default: 0.5,
     }
   ],
-  glsl: `
+  glsl:
   // copy texture coord
   vec2 st = uv;
   // correct for window aspect to make squares
@@ -124,7 +124,7 @@ setFunction({
   // taking the fract will give us repeating patterns
   vec2 tile = fract(st * squares) * amt;
   return uv + tile - offset;
-`
+
 })
 
 noise(1, .5).mult(osc(10, 0, .7)).mosaic().out()
@@ -135,10 +135,12 @@ noise(1, .5).mult(osc(10, 0, .7)).mosaic(.1, 30, 3, 0).out()
 // compare to pixelate
 noise(1, .5).mult(osc(10, 0, .7)).pixelate(10).out()
 
+solid().out()
+
 ///// SHADERS in P5js \\\\\
 
 p5 = new P5({width: window.innerWidth, height:window.innerHeight, mode: 'WEBGL'})
-shader = p5.loadShader("/Users/ags419/Documents/Code/classes/liveCoding/Class_Examples/shaders/basic.vert", "/Users/ags419/Documents/Code/classes/liveCoding/Class_Examples/shaders/ocean.frag");
+shader = p5.loadShader("/Users/mariamabdelrazek/Documents/GitHub/liveCoding/Class_Examples/shaders/basic.vert", "/Users/mariamabdelrazek/Desktop/trytry.frag");
 
 p5.draw = ()=>{
   shader.setUniform("time", time);
